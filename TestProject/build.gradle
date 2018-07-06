@@ -1,0 +1,94 @@
+//import com.linkedin.gradle.build.DistributeTask
+import org.gradle.api.logging.configuration.ConsoleOutput
+
+//apply plugin: 'com.jfrog.artifactory'
+//apply plugin: 'version'
+apply plugin: 'eclipse'
+
+task test(type: Exec) {
+   	workingDir 'C:\\Users\\adityaj\\git\\Learn\\TestProject'
+   	commandLine 'python', 'run.py'
+}
+
+/*
+allprojects {
+    group = 'com.fb.pygradle'
+}
+
+ext {
+    startTime = System.currentTimeMillis()
+}
+
+subprojects {
+    apply plugin: 'eclipse'
+    apply plugin: 'java'
+
+    buildDir = new File(rootProject.buildDir, path.replace(":", File.separator).substring(0))
+
+	task acceptanceTest(type: Exec) {
+    	workingDir 'C:\Users\adityaj\git\FacebookPySelAuto\'
+    	commandLine 'python', 'run.py'
+	}
+*/
+/*    task downloadDependencies {
+        description = 'Download all dependencies to help with CI cacheing'
+        group = 'CI'
+        doLast {
+            //noinspection GroovyAssignabilityCheck
+            configurations.findAll { it.isCanBeResolved() }.each { conf ->
+                conf.files
+            }
+        }
+    }
+
+    tasks.withType(Test) { task ->
+        if (gradle.startParameter.consoleOutput == ConsoleOutput.Plain) {   //on ci we will see tests as they run
+            task.afterTest { TestDescriptor td, TestResult tr ->
+                logger.lifecycle("[${tr.resultType}] - ${td.className}#${td.name}")
+
+            }
+            task.testLogging.exceptionFormat = 'full'
+        }
+        task.afterSuite { desc, result ->
+            if (!desc.parent) { // will match the outermost suite
+                logger.lifecycle("Task {} results: {} ({} tests, {} successes, {} failures, {} skipped)", task.path,
+                    result.resultType, result.testCount, result.successfulTestCount, result.failedTestCount, result.skippedTestCount)
+            }
+        }
+    }
+
+    tasks.matching { it instanceof JavaCompile || it instanceof GroovyCompile }.all {
+        it.options.compilerArgs +=  ['-Xlint:deprecation']
+    }
+
+    fb {
+        module {
+            excludeDirs += buildDir
+        }
+    }
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+artifactoryPublish.skip = true
+artifactory {
+    contextUrl = 'https://linkedin.jfrog.io/linkedin'
+    publish {
+        repoKey = 'pygradle'
+        username = System.getenv('ARTIFACTORY_USER') ?: ""
+        password = System.getenv('ARTIFACTORY_KEY') ?: ""
+
+        defaults {
+            publications ('standardjava')
+        }
+    }
+    clientConfig.setIncludeEnvVars(false)
+}
+*/
+/*idea {
+    project {
+        jdkName = '1.7'
+        languageLevel = '1.7'
+    }
+}*/
