@@ -19,7 +19,7 @@ class MyTestSuite(unittest.TestCase):
             unittest.defaultTestLoader.loadTestsFromTestCase(FirstTest.PracticeFormTest),
         ])
  
-        outfile = open(direct + "\SmokeTest.html", "w")
+        outfile = open(direct + "\index.html", "w")
  
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
